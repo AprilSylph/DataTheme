@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/oG8ps6bg4/jsondrop.css">
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/PXMps6cfk/colour.css">
 		<script src="https://static.tumblr.com/zctqgvy/TaXps6sqb/jsondrop.js"></script>
+		<meta name="text:Auto-Expand Depth" content="2"/>
 		<script>
 			let data = {
 				"Basic Variables": {
@@ -511,7 +512,7 @@
 				"Related Posts": {
 					"block:RelatedPosts": [
 						{block:RelatedPosts}{
-							
+
 							"block:Text": !!"{block:Text}true{/block:Text}",
 							"block:Photo": !!"{block:Photo}true{/block:Photo}",
 							"block:Panorama": !!"{block:Panorama}true{/block:Panorama}",
@@ -884,7 +885,9 @@
 	<body>
 		<script>
 			document.body.innerHTML = `<div>${
-			    render(data, {autoOpenDepth: 2})
+			    render(data, {
+					autoOpenDepth: {text:AutoExpand Depth},
+			    })
 			}</div>`;
 		</script>
 	</body>
