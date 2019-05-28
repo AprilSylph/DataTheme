@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/PXMps6cfk/colour.css">
 		<script src="https://static.tumblr.com/2wliono/jGHps6w0v/jsondrop.js"></script>
 		<script>
+			const ensureString = str => !str ? "" : str;
 			let data = {
 				"Basic Variables": {
 					"Title": {JSTitle},
@@ -506,7 +507,7 @@
 				},
 				"Likes": {
 					"block:Likes": !!"{block:Likes}true{/block:Likes}",
-					"Likes": {JSLikes}
+					"Likes": ensureString({JSLikes})
 				},
 				"Related Posts": {
 					"block:RelatedPosts": [
