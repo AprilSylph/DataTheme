@@ -883,7 +883,9 @@
 	</head>
 	<body>
 		<script>
-			document.body.innerHTML = `<div>${translate("", data)}</div>`;
+			document.body.innerHTML = `<div>${
+			    render(data, {autoOpenDepth: 2})
+			}</div>`;
 		</script>
 	</body>
 </html>
