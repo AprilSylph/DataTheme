@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/oG8ps6bg4/jsondrop.css">
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/PXMps6cfk/colour.css">
 		<script src="https://static.tumblr.com/2wliono/I75ps707w/jsondrop.js"></script>
-		<meta name="text:Auto-Expand Depth" content="2"/>
+		<meta name="text:AutoExpand Depth" content="2"/>
 		<script>
 			const ensureString = str => !str ? "" : str;
 			let data = {
@@ -887,7 +887,9 @@
 		<script>
 			document.body.innerHTML = `<div>${
 			    render(data, {
+					{block:IfAutoExpandDepth}
 					autoOpenDepth: {text:AutoExpand Depth},
+					{/block:IfAutoExpandDepth}
 			    })
 			}</div>`;
 		</script>
