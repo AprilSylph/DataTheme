@@ -4,7 +4,8 @@
 		<title>Theme JSON</title>
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/oG8ps6bg4/jsondrop.css">
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/PXMps6cfk/colour.css">
-		<script src="https://static.tumblr.com/2wliono/jGHps6w0v/jsondrop.js"></script>
+		<script src="https://static.tumblr.com/2wliono/I75ps707w/jsondrop.js"></script>
+		<meta name="text:AutoExpand Depth" content="2"/>
 		<script>
 			const ensureString = str => !str ? "" : str;
 			let data = {
@@ -884,7 +885,13 @@
 	</head>
 	<body>
 		<script>
-			document.body.innerHTML = `<div>${translate("", data)}</div>`;
+			document.body.innerHTML = `<div>${
+			    render(data, {
+					{block:IfAutoExpandDepth}
+					autoOpenDepth: {text:AutoExpand Depth},
+					{/block:IfAutoExpandDepth}
+			    })
+			}</div>`;
 		</script>
 	</body>
 </html>
