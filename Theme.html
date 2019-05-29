@@ -452,7 +452,7 @@
 					"Group Members": {
 						"block:GroupMembers": !!"{block:GroupMembers}true{/block:GroupMembers}",
 						"block:GroupMember": [
-							{block:GroupMember}{
+							{block:GroupMembers}{block:GroupMember}{
 								"GroupMemberTitle": ensureString({JSGroupMemberTitle}),
 								"GroupMemberURL": ensureString({JSGroupMemberURL}),
 								"GroupMemberPortraitURL-16": ensureString({JSGroupMemberPortraitURL-16}),
@@ -463,7 +463,7 @@
 								"GroupMemberPortraitURL-64": ensureString({JSGroupMemberPortraitURL-64}),
 								"GroupMemberPortraitURL-96": ensureString({JSGroupMemberPortraitURL-96}),
 								"GroupMemberPortraitURL-128": ensureString({JSGroupMemberPortraitURL-128})
-							},{/block:GroupMember}
+							},{/block:GroupMember}{/block:GroupMembers}
 						]
 					}
 				},
