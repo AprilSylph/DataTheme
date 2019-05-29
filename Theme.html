@@ -4,7 +4,8 @@
 		<title>Theme JSON</title>
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/oG8ps6bg4/jsondrop.css">
 		<link rel="stylesheet" href="https://static.tumblr.com/2wliono/PXMps6cfk/colour.css">
-		<script src="https://static.tumblr.com/2wliono/I75ps707w/jsondrop.js"></script>
+		<script src="https://static.tumblr.com/zctqgvy/oYyps70bj/jsondrop.js"></script>
+		<meta name="if:Render Images" content="0"/>
 		<meta name="text:AutoExpand Depth" content="2"/>
 		<script>
 			const ensureString = str => !str ? "" : str;
@@ -210,7 +211,7 @@
 								"PhotosetLayout": ensureString({JSPhotosetLayout}),
 								"JSPhotosetLayout": ensureString({JSPhotosetLayout}),
 								"block:Photos": [
-									{block:Photos}{
+									{block:Photoset}{block:Photos}{
 										"PhotoAlt": ensureString({JSPhotoAlt}),
 										"block:Caption": !!"{block:Caption}true{/block:Caption}",
 										"Caption": ensureString({JSCaption}),
@@ -244,7 +245,7 @@
 										"Exposure": ensureString({JSExposure}),
 										"block:FocalLength": !!"{block:FocalLength}true{/block:FocalLength}",
 										"FocalLength": ensureString({JSFocalLength})
-									},{/block:Photos}
+									},{/block:Photos}{/block:Photoset}
 								]
 							},
 							"Quote Posts": {
@@ -882,14 +883,31 @@
 				}
 			};
 		</script>
+		<style type="text/css">
+			img {
+				max-height: 5em;
+				vertical-align: text-top;
+			}
+		</style>
 	</head>
 	<body>
 		<script>
+			const imageRe = /.(pnj|jpe?g|png)($|\?)/;
 			document.body.innerHTML = `<div>${
-			    render(data, {
+				render(data, {
 					{block:IfAutoExpandDepth}
 					autoOpenDepth: {text:AutoExpand Depth},
 					{/block:IfAutoExpandDepth}
+					{block:IfRenderImages}
+					customFormatter: value => {
+						try {
+							const url = new URL(value);
+							if (url.pathname.match(imageRe)) {
+								return `<img src="${ value }">`
+							}
+						} catch {}
+					}
+					{/block:IfRenderImages}
 			    })
 			}</div>`;
 		</script>
