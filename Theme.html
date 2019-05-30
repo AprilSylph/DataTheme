@@ -477,6 +477,7 @@
 						"block:GroupMembers": !!"{block:GroupMembers}true{/block:GroupMembers}",
 						"block:GroupMember": [
 							{block:GroupMembers}{block:GroupMember}{
+								"GroupMemberName": ensureString({JSGroupMemberName}),
 								"GroupMemberTitle": ensureString({JSGroupMemberTitle}),
 								"GroupMemberURL": ensureString({JSGroupMemberURL}),
 								"GroupMemberPortraitURL-16": ensureString({JSGroupMemberPortraitURL-16}),
