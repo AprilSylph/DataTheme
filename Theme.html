@@ -44,9 +44,9 @@
 					"block:IndexPage": !!"{block:IndexPage}true{/block:IndexPage}",
 					"block:HomePage": !!"{block:HomePage}true{/block:HomePage}",
 					"block:PostTitle": !!"{block:PostTitle}true{/block:PostTitle}",
-					"PostTitle": ensureString({JSPostTitle}),
+					"PostTitle": ensureString({block:PostTitle}{JSPostTitle}{/block:PostTitle}),
 					"block:PostSummary": !!"{block:PostSummary}true{/block:PostSummary}",
-					"PostSummary": ensureString({JSPostSummary}),
+					"PostSummary": ensureString({block:PostSummary}{JSPostSummary}{/block:PostSummary}),
 					"PortraitURL-16": ensureString({JSPortraitURL-16}),
 					"PortraitURL-24": ensureString({JSPortraitURL-24}),
 					"PortraitURL-30": ensureString({JSPortraitURL-30}),
@@ -79,9 +79,9 @@
 				"Navigation": {
 					"block:Pagination": !!"{block:Pagination}true{/block:Pagination}",
 					"block:PreviousPage": !!"{block:PreviousPage}true{/block:PreviousPage}",
-					"PreviousPage": ensureString({JSPreviousPage}),
+					"PreviousPage": ensureString({block:PreviousPage}{JSPreviousPage}{/block:PreviousPage}),
 					"block:NextPage": !!"{block:NextPage}true{/block:NextPage}",
-					"NextPage": ensureString({JSNextPage}),
+					"NextPage": ensureString({block:NextPage}{JSNextPage}{/block:NextPage}),
 					"CurrentPage": ensureString({JSCurrentPage}),
 					"TotalPages": ensureString({JSTotalPages}),
 					"block:SubmissionsEnabled": !!"{block:SubmissionsEnabled}true{/block:SubmissionsEnabled}",
@@ -99,10 +99,10 @@
 					},
 					"Permalink Navigation": {
 						"block:PermalinkPagination": !!"{block:PermalinkPagination}true{/block:PermalinkPagination}",
-						"block:PreviousPost": !!"{block:PreviousPost}true{/block:PreviousPost}",
-						"block:NextPost": !!"{block:NextPost}true{/block:NextPost}",
-						"PreviousPost": ensureString({JSPreviousPost}),
-						"NextPost": ensureString({JSNextPost})
+						"block:PreviousPost": !!"{block:PermalinkPagination}{block:PreviousPost}true{/block:PreviousPost}{/block:PermalinkPagination}",
+						"block:NextPost": !!"{block:PermalinkPagination}{block:NextPost}true{/block:NextPost}{/block:PermalinkPagination}",
+						"PreviousPost": ensureString({block:PermalinkPagination}{block:PreviousPost}{JSPreviousPost}{/block:PreviousPost}{/block:PermalinkPagination}),
+						"NextPost": ensureString({block:PermalinkPagination}{block:NextPost}{JSNextPost}{/block:NextPost}{/block:PermalinkPagination})
 					}
 				},
 				"Posts": {
@@ -134,25 +134,25 @@
 								"ReblogParentName": ensureString({JSReblogParentName}),
 								"ReblogParentTitle": ensureString({JSReblogParentTitle}),
 								"ReblogParentURL": ensureString({JSReblogParentURL}),
-								"ReblogParentPortraitURL-16": ensureString({JSReblogParentPortraitURL-16}),
-								"ReblogParentPortraitURL-24": ensureString({JSReblogParentPortraitURL-24}),
-								"ReblogParentPortraitURL-30": ensureString({JSReblogParentPortraitURL-30}),
-								"ReblogParentPortraitURL-40": ensureString({JSReblogParentPortraitURL-40}),
-								"ReblogParentPortraitURL-48": ensureString({JSReblogParentPortraitURL-48}),
-								"ReblogParentPortraitURL-64": ensureString({JSReblogParentPortraitURL-64}),
-								"ReblogParentPortraitURL-96": ensureString({JSReblogParentPortraitURL-96}),
-								"ReblogParentPortraitURL-128": ensureString({JSReblogParentPortraitURL-128}),
-								"ReblogRootName": ensureString({JSReblogRootName}),
-								"ReblogRootTitle": ensureString({JSReblogRootTitle}),
-								"ReblogRootURL": ensureString({JSReblogRootURL}),
-								"ReblogRootPortraitURL-16": ensureString({JSReblogRootPortraitURL-16}),
-								"ReblogRootPortraitURL-24": ensureString({JSReblogRootPortraitURL-24}),
-								"ReblogRootPortraitURL-30": ensureString({JSReblogRootPortraitURL-30}),
-								"ReblogRootPortraitURL-40": ensureString({JSReblogRootPortraitURL-40}),
-								"ReblogRootPortraitURL-48": ensureString({JSReblogRootPortraitURL-48}),
-								"ReblogRootPortraitURL-64": ensureString({JSReblogRootPortraitURL-64}),
-								"ReblogRootPortraitURL-96": ensureString({JSReblogRootPortraitURL-96}),
-								"ReblogRootPortraitURL-128": ensureString({JSReblogRootPortraitURL-128}),
+								"ReblogParentPortraitURL-16": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-16}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-24": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-24}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-30": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-30}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-40": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-40}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-48": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-48}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-64": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-64}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-96": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-96}{/block:RebloggedFrom}),
+								"ReblogParentPortraitURL-128": ensureString({block:RebloggedFrom}{JSReblogParentPortraitURL-128}{/block:RebloggedFrom}),
+								"ReblogRootName": ensureString({block:RebloggedFrom}{JSReblogRootName}{/block:RebloggedFrom}),
+								"ReblogRootTitle": ensureString({block:RebloggedFrom}{JSReblogRootTitle}{/block:RebloggedFrom}),
+								"ReblogRootURL": ensureString({block:RebloggedFrom}{JSReblogRootURL}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-16": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-16}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-24": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-24}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-30": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-30}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-40": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-40}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-48": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-48}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-64": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-64}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-96": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-96}{/block:RebloggedFrom}),
+								"ReblogRootPortraitURL-128": ensureString({block:RebloggedFrom}{JSReblogRootPortraitURL-128}{/block:RebloggedFrom}),
 								"block:Reblogs": [
 									{block:Reblogs}{
 										"block:IsActive": !!"{block:IsActive}true{/block:IsActive}",
@@ -161,14 +161,7 @@
 										"block:HasPermalink": !!"{block:HasPermalink}true{/block:HasPermalink}",
 										"Permalink": ensureString({JSPermalink}),
 										"block:HasAvatar": !!"{block:HasAvatar}true{/block:HasAvatar}",
-										"PortraitURL-16": ensureString({JSPortraitURL-16}),
-										"PortraitURL-24": ensureString({JSPortraitURL-24}),
-										"PortraitURL-30": ensureString({JSPortraitURL-30}),
-										"PortraitURL-40": ensureString({JSPortraitURL-40}),
-										"PortraitURL-48": ensureString({JSPortraitURL-48}),
 										"PortraitURL-64": ensureString({JSPortraitURL-64}),
-										"PortraitURL-96": ensureString({JSPortraitURL-96}),
-										"PortraitURL-128": ensureString({JSPortraitURL-128}),
 										"block:isOriginalEntry": !!"{block:isOriginalEntry}true{/block:isOriginalEntry}",
 										"Body": ensureString({JSBody})
 									},{/block:Reblogs}
@@ -205,14 +198,14 @@
 								"PhotoWidth-HighRes": ensureString({JSPhotoWidth-HighRes}),
 								"PhotoHeight-HighRes": ensureString({JSPhotoHeight-HighRes}),
 								"block:Exif": !!"{block:Exif}true{/block:Exif}",
-								"block:Camera": !!"{block:Camera}true{/block:Camera}",
-								"Camera": ensureString({JSCamera}),
-								"block:Aperture": !!"{block:Aperture}true{/block:Aperture}",
-								"Aperture": ensureString({JSAperture}),
-								"block:Exposure": !!"{block:Exposure}true{/block:Exposure}",
-								"Exposure": ensureString({JSExposure}),
-								"block:FocalLength": !!"{block:FocalLength}true{/block:FocalLength}",
-								"FocalLength": ensureString({JSFocalLength})
+								"block:Camera": !!"{block:Exif}{block:Camera}true{/block:Camera}{/block:Exif}",
+								"Camera": ensureString({block:Exif}{block:Camera}{JSCamera}{/block:Camera}{/block:Exif}),
+								"block:Aperture": !!"{block:Exif}{block:Aperture}true{/block:Aperture}{/block:Exif}",
+								"Aperture": ensureString({block:Exif}{block:Aperture}{JSAperture}{/block:Aperture}{/block:Exif}),
+								"block:Exposure": !!"{block:Exif}{block:Exposure}true{/block:Exposure}{/block:Exif}",
+								"Exposure": ensureString({block:Exif}{block:Exposure}{JSExposure}{/block:Exposure}{/block:Exif}),
+								"block:FocalLength": !!"{block:Exif}{block:FocalLength}true{/block:FocalLength}{/block:Exif}",
+								"FocalLength": ensureString({block:Exif}{block:FocalLength}{JSFocalLength}{/block:FocalLength}{/block:Exif})
 							},
 							"Panorama Posts": {
 								"LinkOpenTag": ensureString({JSLinkOpenTag}),
@@ -259,14 +252,14 @@
 										"PhotoWidth-HighRes": ensureString({JSPhotoWidth-HighRes}),
 										"PhotoHeight-HighRes": ensureString({JSPhotoHeight-HighRes}),
 										"block:Exif": !!"{block:Exif}true{/block:Exif}",
-										"block:Camera": !!"{block:Camera}true{/block:Camera}",
-										"Camera": ensureString({JSCamera}),
-										"block:Aperture": !!"{block:Aperture}true{/block:Aperture}",
-										"Aperture": ensureString({JSAperture}),
-										"block:Exposure": !!"{block:Exposure}true{/block:Exposure}",
-										"Exposure": ensureString({JSExposure}),
-										"block:FocalLength": !!"{block:FocalLength}true{/block:FocalLength}",
-										"FocalLength": ensureString({JSFocalLength})
+										"block:Camera": !!"{block:Exif}{block:Camera}true{/block:Camera}{/block:Exif}",
+										"Camera": ensureString({block:Exif}{block:Camera}{JSCamera}{/block:Camera}{/block:Exif}),
+										"block:Aperture": !!"{block:Exif}{block:Aperture}true{/block:Aperture}{/block:Exif}",
+										"Aperture": ensureString({block:Exif}{block:Aperture}{JSAperture}{/block:Aperture}{/block:Exif}),
+										"block:Exposure": !!"{block:Exif}{block:Exposure}true{/block:Exposure}{/block:Exif}",
+										"Exposure": ensureString({block:Exif}{block:Exposure}{JSExposure}{/block:Exposure}{/block:Exif}),
+										"block:FocalLength": !!"{block:Exif}{block:FocalLength}true{/block:FocalLength}{/block:Exif}",
+										"FocalLength": ensureString({block:Exif}{block:FocalLength}{JSFocalLength}{/block:FocalLength}{/block:Exif})
 									},{/block:Photos}{/block:Photoset}
 								]
 							},
@@ -298,8 +291,9 @@
 								"block:Lines": [
 									{block:Lines}{
 										"block:Label": !!"{block:Label}true{/block:Label}",
-										"Label": ensureString({JSLabel}),
-										"Name": ensureString({JSName}),
+										"block:Name": !!"{block:Name}true{/block:Name}",
+										"Label": ensureString({block:Label}{JSLabel}{/block:Label}),
+										"Name": ensureString({block:Name}{JSName}{/block:Name}),
 										"Line": ensureString({JSLine}),
 										"UserNumber": ensureString({JSUserNumber}),
 										"Alt": ensureString({JSAlt})
@@ -323,15 +317,15 @@
 								"FormattedPlayCount": ensureString({JSFormattedPlayCount}),
 								"PlayCountWithLabel": ensureString({JSPlayCountWithLabel}),
 								"block:ExternalAudio": !!"{block:ExternalAudio}true{/block:ExternalAudio}",
-								"ExternalAudioURL": ensureString({JSExternalAudioURL}),
+								"ExternalAudioURL": ensureString({block:ExternalAudio}{JSExternalAudioURL}{/block:ExternalAudio}),
 								"block:AlbumArt": !!"{block:AlbumArt}true{/block:AlbumArt}",
-								"AlbumArtURL": ensureString({JSAlbumArtURL}),
+								"AlbumArtURL": ensureString({block:AlbumArt}{JSAlbumArtURL}{/block:AlbumArt}),
 								"block:Artist": !!"{block:Artist}true{/block:Artist}",
-								"Artist": ensureString({JSArtist}),
+								"Artist": ensureString({block:Artist}{JSArtist}{/block:Artist}),
 								"block:Album": !!"{block:Album}true{/block:Album}",
-								"Album": ensureString({JSAlbum}),
+								"Album": ensureString({block:Album}{JSAlbum}{/block:Album}),
 								"block:TrackName": !!"{block:TrackName}true{/block:TrackName}",
-								"TrackName": ensureString({JSTrackName})
+								"TrackName": ensureString({block:TrackName}{JSTrackName}{/block:TrackName})
 							},
 							"Video Posts": {
 								"block:Caption": !!"{block:Caption}true{/block:Caption}",
@@ -348,7 +342,7 @@
 								"FormattedPlayCount": ensureString({JSFormattedPlayCount}),
 								"PlayCountWithLabel": ensureString({JSPlayCountWithLabel}),
 								"block:VideoThumbnail": !!"{block:VideoThumbnail}true{/block:VideoThumbnail}",
-								"VideoThumbnailURL": ensureString({JSVideoThumbnailURL}),
+								"VideoThumbnailURL": ensureString({block:VideoThumbnail}{JSVideoThumbnailURL}{/block:VideoThumbnail}),
 								"block:VideoThumbnails": [
 									{block:VideoThumbnails}{
 										"VideoThumbnailURL": ensureString({JSVideoThumbnailURL})
@@ -431,13 +425,13 @@
 							},
 							"Content Sources": {
 								"block:ContentSource": !!"{block:ContentSource}true{/block:ContentSource}",
-								"SourceURL": ensureString({JSSourceURL}),
-								"block:SourceLogo": !!"{block:SourceLogo}true{/block:SourceLogo}",
-								"BlackLogoURL": ensureString({JSBlackLogoURL}),
-								"LogoWidth": ensureString({JSLogoWidth}),
-								"LogoHeight": ensureString({JSLogoHeight}),
-								"SourceTitle": ensureString({JSSourceTitle}),
-								"block:NoSourceLogo": !!"{block:NoSourceLogo}true{/block:NoSourceLogo}"
+								"SourceURL": ensureString({block:ContentSource}{JSSourceURL}{/block:ContentSource}),
+								"block:SourceLogo": !!"{block:ContentSource}{block:SourceLogo}true{/block:SourceLogo}{/block:ContentSource}",
+								"BlackLogoURL": ensureString({block:ContentSource}{block:SourceLogo}{JSBlackLogoURL}{/block:SourceLogo}{/block:ContentSource}),
+								"LogoWidth": ensureString({block:ContentSource}{block:SourceLogo}{JSLogoWidth}{/block:SourceLogo}{/block:ContentSource}),
+								"LogoHeight": ensureString({block:ContentSource}{block:SourceLogo}{JSLogoHeight}{/block:SourceLogo}{/block:ContentSource}),
+								"SourceTitle": ensureString({block:ContentSource}{JSSourceTitle}{/block:ContentSource}),
+								"block:NoSourceLogo": !!"{block:ContentSource}{block:NoSourceLogo}true{/block:NoSourceLogo}{/block:ContentSource}"
 							},
 							"Submissions": {
 								"block:Submission": !!"{block:Submission}true{/block:Submission}",
@@ -492,23 +486,23 @@
 				"Day Pages": {
 					"block:DayPage": !!"{block:DayPage}true{/block:DayPage}",
 					"block:DayPagination": !!"{block:DayPagination}true{/block:DayPagination}",
-					"block:PreviousDayPage": !!"{block:PreviousDayPage}true{/block:PreviousDayPage}",
-					"block:NextDayPage": !!"{block:NextDayPage}true{/block:NextDayPage}",
-					"PreviousDayPage": ensureString({JSPreviousDayPage}),
-					"NextDayPage": ensureString({JSNextDayPage}),
+					"block:PreviousDayPage": !!"{block:DayPagination}{block:PreviousDayPage}true{/block:PreviousDayPage}{/block:DayPagination}",
+					"block:NextDayPage": !!"{block:DayPagination}{block:NextDayPage}true{/block:NextDayPage}{/block:DayPagination}",
+					"PreviousDayPage": ensureString({block:DayPagination}{block:PreviousDayPage}{JSPreviousDayPage}{/block:PreviousDayPage}{/block:DayPagination}),
+					"NextDayPage": ensureString({block:DayPagination}{block:NextDayPage}{JSNextDayPage}{/block:NextDayPage}{/block:DayPagination}),
 				},
 				"Tag Pages": {
 					"block:TagPage": !!"{block:TagPage}true{/block:TagPage}",
-					"Tag": ensureString({JSTag}),
-					"URLSafeTag": ensureString({JSURLSafeTag}),
-					"TagURL": ensureString({JSTagURL}),
-					"TagURLChrono": ensureString({JSTagURLChrono})
+					"Tag": ensureString({block:TagPage}{JSTag}{/block:TagPage}),
+					"URLSafeTag": ensureString({block:TagPage}{JSURLSafeTag}{/block:TagPage}),
+					"TagURL": ensureString({block:TagPage}{JSTagURL}{/block:TagPage}),
+					"TagURLChrono": ensureString({block:TagPage}{JSTagURLChrono}{/block:TagPage})
 				},
 				"Search": {
 					"SearchQuery": ensureString({JSSearchQuery}),
 					"URLSafeSearchQuery": ensureString({JSURLSafeSearchQuery}),
 					"block:SearchPage": !!"{block:SearchPage}true{/block:SearchPage}",
-					"SearchResultCount": ensureString({JSSearchResultCount}),
+					"SearchResultCount": ensureString({block:SearchPage}{JSSearchResultCount}{/block:SearchPage}),
 					"block:NoSearchResults": !!"{block:NoSearchResults}true{/block:NoSearchResults}"
 				},
 				"Following": {
@@ -534,8 +528,9 @@
 					"Likes": ensureString({JSLikes})
 				},
 				"Related Posts": {
+					"block:IfRelatedPosts": !!"{block:IfRelatedPosts}true{/block:IfRelatedPosts}",
 					"block:RelatedPosts": [
-						{block:RelatedPosts}{
+						{block:IfRelatedPosts}{block:RelatedPosts}{
 
 							"block:Text": !!"{block:Text}true{/block:Text}",
 							"block:Photo": !!"{block:Photo}true{/block:Photo}",
@@ -634,14 +629,14 @@
 								"PhotoWidth-HighRes": ensureString({JSPhotoWidth-HighRes}),
 								"PhotoHeight-HighRes": ensureString({JSPhotoHeight-HighRes}),
 								"block:Exif": !!"{block:Exif}true{/block:Exif}",
-								"block:Camera": !!"{block:Camera}true{/block:Camera}",
-								"Camera": ensureString({JSCamera}),
-								"block:Aperture": !!"{block:Aperture}true{/block:Aperture}",
-								"Aperture": ensureString({JSAperture}),
-								"block:Exposure": !!"{block:Exposure}true{/block:Exposure}",
-								"Exposure": ensureString({JSExposure}),
-								"block:FocalLength": !!"{block:FocalLength}true{/block:FocalLength}",
-								"FocalLength": ensureString({JSFocalLength})
+								"block:Camera": !!"{block:Exif}{block:Camera}true{/block:Camera}{/block:Exif}",
+								"Camera": ensureString({block:Exif}{block:Camera}{JSCamera}{/block:Camera}{/block:Exif}),
+								"block:Aperture": !!"{block:Exif}{block:Aperture}true{/block:Aperture}{/block:Exif}",
+								"Aperture": ensureString({block:Exif}{block:Aperture}{JSAperture}{/block:Aperture}{/block:Exif}),
+								"block:Exposure": !!"{block:Exif}{block:Exposure}true{/block:Exposure}{/block:Exif}",
+								"Exposure": ensureString({block:Exif}{block:Exposure}{JSExposure}{/block:Exposure}{/block:Exif}),
+								"block:FocalLength": !!"{block:Exif}{block:FocalLength}true{/block:FocalLength}{/block:Exif}",
+								"FocalLength": ensureString({block:Exif}{block:FocalLength}{JSFocalLength}{/block:FocalLength}{/block:Exif})
 							},
 							"Panorama Posts": {
 								"LinkOpenTag": ensureString({JSLinkOpenTag}),
@@ -688,14 +683,14 @@
 										"PhotoWidth-HighRes": ensureString({JSPhotoWidth-HighRes}),
 										"PhotoHeight-HighRes": ensureString({JSPhotoHeight-HighRes}),
 										"block:Exif": !!"{block:Exif}true{/block:Exif}",
-										"block:Camera": !!"{block:Camera}true{/block:Camera}",
-										"Camera": ensureString({JSCamera}),
-										"block:Aperture": !!"{block:Aperture}true{/block:Aperture}",
-										"Aperture": ensureString({JSAperture}),
-										"block:Exposure": !!"{block:Exposure}true{/block:Exposure}",
-										"Exposure": ensureString({JSExposure}),
-										"block:FocalLength": !!"{block:FocalLength}true{/block:FocalLength}",
-										"FocalLength": ensureString({JSFocalLength})
+										"block:Camera": !!"{block:Exif}{block:Camera}true{/block:Camera}{/block:Exif}",
+										"Camera": ensureString({block:Exif}{block:Camera}{JSCamera}{/block:Camera}{/block:Exif}),
+										"block:Aperture": !!"{block:Exif}{block:Aperture}true{/block:Aperture}{/block:Exif}",
+										"Aperture": ensureString({block:Exif}{block:Aperture}{JSAperture}{/block:Aperture}{/block:Exif}),
+										"block:Exposure": !!"{block:Exif}{block:Exposure}true{/block:Exposure}{/block:Exif}",
+										"Exposure": ensureString({block:Exif}{block:Exposure}{JSExposure}{/block:Exposure}{/block:Exif}),
+										"block:FocalLength": !!"{block:Exif}{block:FocalLength}true{/block:FocalLength}{/block:Exif}",
+										"FocalLength": ensureString({block:Exif}{block:FocalLength}{JSFocalLength}{/block:FocalLength}{/block:Exif})
 									},{/block:Photos}
 								]
 							},
@@ -727,8 +722,9 @@
 								"block:Lines": [
 									{block:Lines}{
 										"block:Label": !!"{block:Label}true{/block:Label}",
-										"Label": ensureString({JSLabel}),
-										"Name": ensureString({JSName}),
+										"block:Name": !!"{block:Name}true{/block:Name}",
+										"Label": ensureString({block:Label}{JSLabel}{/block:Label}),
+										"Name": ensureString({block:Name}{JSName}{/block:Name}),
 										"Line": ensureString({JSLine}),
 										"UserNumber": ensureString({JSUserNumber}),
 										"Alt": ensureString({JSAlt})
@@ -752,15 +748,15 @@
 								"FormattedPlayCount": ensureString({JSFormattedPlayCount}),
 								"PlayCountWithLabel": ensureString({JSPlayCountWithLabel}),
 								"block:ExternalAudio": !!"{block:ExternalAudio}true{/block:ExternalAudio}",
-								"ExternalAudioURL": ensureString({JSExternalAudioURL}),
+								"ExternalAudioURL": ensureString({block:ExternalAudio}{JSExternalAudioURL}{/block:ExternalAudio}),
 								"block:AlbumArt": !!"{block:AlbumArt}true{/block:AlbumArt}",
-								"AlbumArtURL": ensureString({JSAlbumArtURL}),
+								"AlbumArtURL": ensureString({block:AlbumArt}{JSAlbumArtURL}{/block:AlbumArt}),
 								"block:Artist": !!"{block:Artist}true{/block:Artist}",
-								"Artist": ensureString({JSArtist}),
+								"Artist": ensureString({block:Artist}{JSArtist}{/block:Artist}),
 								"block:Album": !!"{block:Album}true{/block:Album}",
-								"Album": ensureString({JSAlbum}),
+								"Album": ensureString({block:Album}{JSAlbum}{/block:Album}),
 								"block:TrackName": !!"{block:TrackName}true{/block:TrackName}",
-								"TrackName": ensureString({JSTrackName})
+								"TrackName": ensureString({block:TrackName}{JSTrackName}{/block:TrackName})
 							},
 							"Video Posts": {
 								"block:Caption": !!"{block:Caption}true{/block:Caption}",
@@ -777,7 +773,7 @@
 								"FormattedPlayCount": ensureString({JSFormattedPlayCount}),
 								"PlayCountWithLabel": ensureString({JSPlayCountWithLabel}),
 								"block:VideoThumbnail": !!"{block:VideoThumbnail}true{/block:VideoThumbnail}",
-								"VideoThumbnailURL": ensureString({JSVideoThumbnailURL}),
+								"VideoThumbnailURL": ensureString({block:VideoThumbnail}{JSVideoThumbnailURL}{/block:VideoThumbnail}),
 								"block:VideoThumbnails": [
 									{block:VideoThumbnails}{
 										"VideoThumbnailURL": ensureString({JSVideoThumbnailURL})
@@ -896,12 +892,12 @@
 							},
 							"LikeButton": ensureString({JSLikeButton}),
 							"ReblogButton": ensureString({JSReblogButton})
-						},{/block:RelatedPosts}
+						},{/block:RelatedPosts}{/block:IfRelatedPosts}
 					]
 				},
 				"Twitter": {
 					"block:Twitter": !!"{block:Twitter}true{/block:Twitter}",
-					"TwitterUsername": ensureString({JSTwitterUsername})
+					"TwitterUsername": ensureString({block:Twitter}{JSTwitterUsername}{/block:Twitter})
 				}
 			};
 		</script>
@@ -924,7 +920,7 @@
 						} catch {}
 					}
 					{/block:IfRenderImages}
-			    })
+				})
 			}</div>`;
 		</script>
 	</body>
