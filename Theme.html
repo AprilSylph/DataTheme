@@ -506,7 +506,7 @@
 				"Following": {
 					"block:Following": !!"{block:Following}true{/block:Following}",
 					"block:Followed": [
-						{block:Followed}{
+						{block:Following}{block:Followed}{
 							"FollowedName": ensureString({JSFollowedName}),
 							"FollowedTitle": ensureString({JSFollowedTitle}),
 							"FollowedURL": ensureString({JSFollowedURL}),
@@ -518,7 +518,7 @@
 							"FollowedPortraitURL-64": ensureString({JSFollowedPortraitURL-64}),
 							"FollowedPortraitURL-96": ensureString({JSFollowedPortraitURL-96}),
 							"FollowedPortraitURL-128": ensureString({JSFollowedPortraitURL-128})
-						},{/block:Followed}
+						},{/block:Followed}{/block:Following}
 					]
 				},
 				"Likes": {
