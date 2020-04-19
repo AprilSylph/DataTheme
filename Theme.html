@@ -2,9 +2,11 @@
 {block:Options}
 	<meta name="color:Background" content="black">
 	<meta name="color:Text" content="white">
+	<meta name="color:undefined" content="grey">
+	<meta name="color:null" content="grey">
 	<meta name="color:Boolean" content="lime">
+	<meta name="color:Number" content="lime">
 	<meta name="color:String" content="fuchsia">
-	<meta name="if:Render Images" content="0">
 	<meta name="text:AutoExpand Depth" content="2">
 {/block:Options}
 <html>
@@ -16,29 +18,31 @@
 		<link rel="shortcut icon" href="{Favicon}">
 		<link rel="alternate" type="application/rss+xml" href="{RSS}">
 		<link rel="stylesheet" type="text/css" href="https://static.tumblr.com/2wliono/Vf7pfceur/normalize.css">
-		<link rel="stylesheet" type="text/css" href="https://static.tumblr.com/2wliono/cjEpsbjdb/jsondrop.css">
-		<script src="https://static.tumblr.com/zctqgvy/oYyps70bj/jsondrop.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://static.tumblr.com/2wliono/7Uuq90boq/jsondrop.css">
 		<style>
+			:root {
+				--jsondrop-background: {color:Background};
+				--jsondrop-text: {color:Text};
+				--jsondrop-undefined: {color:undefined};
+				--jsondrop-null: {color:null};
+				--jsondrop-boolean: {color:Boolean};
+				--jsondrop-number: {color:Number};
+				--jsondrop-string: {color:String};
+			}
 			body {
-				background: {color:Background};
-				color: {color:Text};
-			}
-			.undefined, .null {
-				color: grey;
-			}
-			.boolean, .number {
-				color: {color:Boolean};
-			}
-			.string {
-				color: {color:String};
-			}
-			img {
-				max-height: 5em;
-				vertical-align: text-top;
+				background-color: {color:Background};
 			}
 		</style>
+		<script src="https://static.tumblr.com/2wliono/4xKq90dvo/jsondrop.js"></script>
 		<script>
-			const ensureString = str => !str ? "" : str;
+			// https://stackoverflow.com/a/1912522
+			const htmlDecode = input => {
+				var e = document.createElement('textarea');
+				e.innerHTML = input;
+				// handle case of empty input
+				return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+			}
+			const ensureString = str => !str ? "" : htmlDecode(str);
 			let data = {
 				"Basic Variables": {
 					"Title": ensureString({JSTitle}),
@@ -903,24 +907,11 @@
 	</head>
 	<body>
 		<script>
-			const imageRe = /.(pnj|jpe?g|png)($|\?)/;
-			document.body.innerHTML = `<div>${
-				render(data, {
-					{block:IfAutoExpandDepth}
-					autoOpenDepth: {text:AutoExpand Depth},
-					{/block:IfAutoExpandDepth}
-					{block:IfRenderImages}
-					customFormatter: value => {
-						try {
-							const url = new URL(value);
-							if (url.pathname.match(imageRe)) {
-								return `<img src="${ value }">`
-							}
-						} catch {}
-					}
-					{/block:IfRenderImages}
-				})
-			}</div>`;
+			document.body.appendChild(convert(data, {
+				{block:IfAutoExpandDepth}
+				autoOpenDepth: {text:AutoExpand Depth},
+				{/block:IfAutoExpandDepth}
+			}));
 		</script>
 	</body>
 </html>
