@@ -18,7 +18,7 @@
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/2wliono/Vf7pfceur/normalize.css">
-        <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/2wliono/qHZq97l8i/jsondrop.min.css">
+        <link rel="stylesheet" type="text/css" href="https://static.tumblr.com/w0daeoc/2Rfr4rta3/jsondrop.min.css">
         <style>
             :root {
                 --jsondrop-background: {color:Background};
@@ -33,8 +33,9 @@
                 background-color: {color:Background};
             }
         </style>
-        <script src="https://static.tumblr.com/2wliono/70Jq97gnq/jsondrop.min.js"></script>
-        <script>
+        <script type="module">
+            import jsondrop from 'https://static.tumblr.com/w0daeoc/nq1r4rt9x/jsondrop.min.js';
+
             // https://stackoverflow.com/a/1912522
             const htmlDecode = input => {
                 var e = document.createElement('textarea');
@@ -43,7 +44,7 @@
                 return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
             }
             const ensureString = str => !str ? "" : htmlDecode(str);
-            let data = {
+            const data = {
                 "Basic Variables": {
                     "Title": ensureString({JSTitle}),
                     "Description": ensureString({JSDescription}),
@@ -904,15 +905,13 @@
                     "TwitterUsername": ensureString({block:Twitter}{JSTwitterUsername}{/block:Twitter})
                 }
             };
-        </script>
-    </head>
-    <body>
-        <script>
-            document.body.appendChild(convert(data, {
+
+            document.body.appendChild(jsondrop(data, {
                 {block:IfAutoExpandDepth}
                 autoOpenDepth: {text:AutoExpand Depth},
                 {/block:IfAutoExpandDepth}
             }));
         </script>
-    </body>
+    </head>
+    <body></body>
 </html>
