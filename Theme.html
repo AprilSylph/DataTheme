@@ -2,11 +2,11 @@
 {block:Options}
     <meta name="color:Background" content="black">
     <meta name="color:Text" content="white">
-    <meta name="color:undefined" content="grey">
-    <meta name="color:null" content="grey">
     <meta name="color:Boolean" content="lime">
     <meta name="color:Number" content="lime">
     <meta name="color:String" content="fuchsia">
+    <meta name="color:Undefined" content="grey">
+    <meta name="color:Null" content="grey">
     <meta name="text:AutoExpand Depth" content="2">
 {/block:Options}
 <html>
@@ -23,13 +23,12 @@
             :root {
                 --jsondrop-background: {color:Background};
                 --jsondrop-text: {color:Text};
-                --jsondrop-undefined: {color:undefined};
-                --jsondrop-null: {color:null};
                 --jsondrop-boolean: {color:Boolean};
                 --jsondrop-number: {color:Number};
                 --jsondrop-string: {color:String};
-            }
-            body {
+                --jsondrop-undefined: {color:Undefined};
+                --jsondrop-null: {color:Null};
+
                 background-color: {color:Background};
             }
         </style>
