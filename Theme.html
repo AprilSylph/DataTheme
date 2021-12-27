@@ -37,14 +37,10 @@
         <script type="module">
             import jsondrop from 'https://static.tumblr.com/w0daeoc/nq1r4rt9x/jsondrop.min.js';
 
-            // https://stackoverflow.com/a/1912522
-            const htmlDecode = input => {
-                var e = document.createElement('textarea');
-                e.innerHTML = input;
-                // handle case of empty input
-                return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
-            }
-            const ensureString = str => !str ? "" : htmlDecode(str);
+            const parser = new DOMParser();
+            const unescape = str => parser.parseFromString(str, 'text/html').body.textContent;
+            const ensureString = str => !str ? "" : unescape(str);
+
             const data = {
                 "Basic Variables": {
                     "Title": ensureString({JSTitle}),
