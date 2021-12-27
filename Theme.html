@@ -31,6 +31,8 @@
 
                 background-color: {color:Background};
             }
+
+            .notes { display: none; }
         </style>
         <script type="module">
             import jsondrop from 'https://static.tumblr.com/w0daeoc/nq1r4rt9x/jsondrop.min.js';
@@ -417,6 +419,8 @@
                                 "TimeAgo": ensureString({JSTimeAgo})
                             },
                             "Notes": {
+                                "block:PostNotes": !!"{block:PostNotes}true{/block:PostNotes}",
+                                "PostNotes": document.querySelector('.notes')?.outerHTML || '',
                                 "block:NoteCount": !!"{block:NoteCount}true{/block:NoteCount}",
                                 "NoteCount": ensureString({JSNoteCount}),
                                 "NoteCountWithLabel": ensureString({JSNoteCountWithLabel})
@@ -912,5 +916,7 @@
             }));
         </script>
     </head>
-    <body></body>
+    <body>
+        {PostNotes}
+    </body>
 </html>
